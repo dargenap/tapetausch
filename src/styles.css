@@ -768,6 +768,22 @@ tr:last-child td {
   flex-wrap: wrap;
   gap: 4px 10px;
   align-items: baseline;
+  cursor: pointer;
+  list-style: none;
+}
+
+.release-head::-webkit-details-marker {
+  display: none;
+}
+
+.release-head::after {
+  content: "›";
+  margin-left: auto;
+  transition: transform 0.15s;
+}
+
+.release[open] .release-head::after {
+  transform: rotate(90deg);
 }
 
 .release-head .badge {
@@ -776,6 +792,7 @@ tr:last-child td {
 
 .release-date {
   display: block;
+  margin-top: 4px;
   font-size: 0.8rem;
 }
 

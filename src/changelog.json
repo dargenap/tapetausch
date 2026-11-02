@@ -1,7 +1,15 @@
 [
   {
+    "version": "0.3.1",
+    "title": "Übersichtlicher Changelog",
+    "date": "2026-11-02",
+    "changes": [
+      "Ältere Versionen sind jetzt eingeklappt – tippe auf eine Version, um sie aufzuklappen."
+    ]
+  },
+  {
     "version": "0.3.0",
-    "title": "Was ist neu?",
+    "title": "Changelog eingeführt",
     "date": "2026-11-02",
     "changes": [
       "Diese Seite: alle Änderungen auf einen Blick, unten im Feed neben der Versionsnummer.",

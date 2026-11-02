@@ -14,13 +14,14 @@ export default function ChangelogPage() {
       </Link>
       <h1>Was ist neu?</h1>
 
-      {CHANGELOG.map(release => (
-        <article key={release.version} className="card release">
-          <div className="release-head">
+      {/* Nur die beiden neuesten Versionen sind aufgeklappt, ältere per Tipp. */}
+      {CHANGELOG.map((release, index) => (
+        <details key={release.version} className="card release" open={index < 2}>
+          <summary className="release-head">
             <strong>v{release.version}</strong>
             <span>{release.title}</span>
             {release.version === __APP_VERSION__ && <span className="badge">aktuell</span>}
-          </div>
+          </summary>
           {release.date && (
             <span className="muted release-date">{new Date(release.date).toLocaleDateString('de-DE')}</span>
           )}
@@ -29,7 +30,7 @@ export default function ChangelogPage() {
               <li key={change}>{change}</li>
             ))}
           </ul>
-        </article>
+        </details>
       ))}
     </main>
   );
