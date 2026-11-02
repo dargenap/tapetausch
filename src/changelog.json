@@ -1,0 +1,51 @@
+[
+  {
+    "version": "0.3.0",
+    "title": "Was ist neu?",
+    "date": "2026-11-02",
+    "changes": [
+      "Diese Seite: alle Änderungen auf einen Blick, unten im Feed neben der Versionsnummer.",
+      "Ein roter Punkt zeigt, wenn es seit deinem letzten Blick etwas Neues gibt."
+    ]
+  },
+  {
+    "version": "0.2.1",
+    "title": "Erklärungen und Feedback",
+    "changes": [
+      "Erklärungen erscheinen genau dann, wenn du ein Feature zum ersten Mal öffnest.",
+      "Neue Erklärung zu Registrierung und Einladungscode.",
+      "Menü oben rechts mit Anleitung, Feedback und Abmelden.",
+      "Bugs melden, Feedback geben und Features wünschen."
+    ]
+  },
+  {
+    "version": "0.2.0",
+    "title": "Neues Layout",
+    "changes": [
+      "Schlichtes, aufgeräumtes Design fürs Handy.",
+      "Lautstärkeregler für Hörproben am Computer.",
+      "Direkt auf Kommentare antworten.",
+      "Dein eigener Pick ist hervorgehoben, mit „von dir“.",
+      "In Kommentaren siehst du, wer den Pick gepostet hat."
+    ]
+  },
+  {
+    "version": "0.1.1",
+    "title": "Tapetausch",
+    "changes": [
+      "Die App heißt jetzt Tapetausch.",
+      "„Pick der Woche posten“ ist immer unten erreichbar.",
+      "Kurze Einführung beim ersten Start."
+    ]
+  },
+  {
+    "version": "0.1.0",
+    "title": "Erste Version",
+    "changes": [
+      "Jede Woche einen Song teilen, mit Hörprobe, Notiz und Foto.",
+      "Blind bewerten nach Qualität und Emotion.",
+      "Picks kommentieren.",
+      "Zugang nur mit Einladungscode."
+    ]
+  }
+]

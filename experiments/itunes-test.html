@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iTunes-Test</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      input[type="search"] {
+        flex: 1 1 200px;
+        padding: 10px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 12px;
+        font-size: 16px;
+      }
+      label {
+        width: 100%;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        display: grid;
+        grid-template-columns: 60px 1fr auto;
+        gap: 10px;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #ccc;
+      }
+      li img {
+        width: 60px;
+        height: 60px;
+      }
+      #log {
+        padding: 10px;
+        background: #111;
+        color: #eee;
+        font-size: 13px;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>iTunes-Test</h1>
+
+    <form id="search-form">
+      <input
+        id="term"
+        type="search"
+        value="Radiohead"
+        aria-label="Suchbegriff"
+      />
+      <button type="submit">Suchen</button>
+      <label
+        ><input id="use-jsonp" type="checkbox" /> JSONP statt fetch
+        verwenden</label
+      >
+    </form>
+
+    <ul id="results"></ul>
+    <h2>Protokoll</h2>
+    <pre id="log"></pre>
+
+    <script>
+      const API = "https://itunes.apple.com";
+      const audio = new Audio();
+
+      const form = document.getElementById("search-form");
+      const termInput = document.getElementById("term");
+      const jsonpInput = document.getElementById("use-jsonp");
+      const results = document.getElementById("results");
+      const logBox = document.getElementById("log");
+
+      function log(message) {
+        const time = new Date().toLocaleTimeString("de-DE");
+        logBox.textContent = `${time}  ${message}\n` + logBox.textContent;
+      }
+
+      async function requestFetch(url) {
+        const response = await fetch(url);
+        log(`fetch: HTTP ${response.status}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      }
+
+      function requestJsonp(url) {
+        return new Promise((resolve, reject) => {
+          const callback = `itunesCallback${Date.now()}`;
+          const script = document.createElement("script");
+          const cleanUp = () => {
+            delete window[callback];
+            script.remove();
+          };
+          window[callback] = (data) => {
+            cleanUp();
+            resolve(data);
+          };
+          script.onerror = () => {
+            cleanUp();
+            reject(new Error("JSONP konnte nicht geladen werden"));
+          };
+          script.src = `${url}&callback=${callback}`;
+          document.head.append(script);
+        });
+      }
+
+      function request(url) {
+        log(`Anfrage: ${url}`);
+        return jsonpInput.checked ? requestJsonp(url) : requestFetch(url);
+      }
+
+      function showResults(tracks) {
+        results.replaceChildren();
+        for (const track of tracks) {
+          const item = document.createElement("li");
+
+          const cover = document.createElement("img");
+          cover.src = track.artworkUrl100;
+          cover.alt = "";
+
+          const text = document.createElement("div");
+          text.textContent = `${track.trackName} – ${track.artistName}`;
+
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = "Abspielen";
+          button.addEventListener("click", () => playTrack(track.trackId));
+
+          item.append(cover, text, button);
+          results.append(item);
+        }
+      }
+
+      async function searchTracks(term) {
+        const params = new URLSearchParams({
+          term,
+          country: "DE",
+          media: "music",
+          entity: "song",
+          limit: "10",
+        });
+
+        try {
+          const data = await request(`${API}/search?${params}`);
+          const missing = data.results.filter(
+            (track) => !track.previewUrl,
+          ).length;
+          log(
+            `Suche OK: ${data.resultCount} Treffer, ${missing} ohne previewUrl`,
+          );
+          showResults(data.results);
+        } catch (error) {
+          log(`Suche FEHLER: ${error.name}: ${error.message}`);
+        }
+      }
+
+      async function playTrack(trackId) {
+        try {
+          audio.pause();
+          const data = await request(`${API}/lookup?id=${trackId}&country=DE`);
+          const track = data.results[0];
+          log(`ID-Abfrage OK: ${track?.trackName ?? "kein Treffer"}`);
+
+          if (!track?.previewUrl) {
+            log("Keine Hörprobe vorhanden");
+            return;
+          }
+
+          audio.src = track.previewUrl;
+          await audio.play();
+          log(`Hörprobe läuft: ${track.previewUrl}`);
+        } catch (error) {
+          log(`Wiedergabe FEHLER: ${error.name}: ${error.message}`);
+        }
+      }
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const term = termInput.value.trim();
+        if (term) searchTracks(term);
+      });
+
+      log(`Getestet von: ${location.origin}`);
+    </script>
+  </body>
+</html>
