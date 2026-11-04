@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Navigate, Route, Routes } from 'react-router';
 import { useAuth } from './hooks/useAuth';
 import ChangelogPage from './pages/ChangelogPage';
+import CollectionPage from './pages/CollectionPage';
 import FeedbackPage from './pages/FeedbackPage';
 import FeedPage from './pages/FeedPage';
 import LoginPage from './pages/LoginPage';
@@ -22,7 +23,8 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/" element={<RequireMember><FeedPage /></RequireMember>} />
-      <Route path="/new" element={<RequireMember><NewPickPage /></RequireMember>} />
+      <Route path="/sammlung" element={<RequireMember><CollectionPage /></RequireMember>} />
+      <Route path="/new"element={<RequireMember><NewPickPage /></RequireMember>} />
       <Route path="/pick/:id" element={<RequireMember><PickPage /></RequireMember>} />
       <Route path="/feedback" element={<RequireMember><FeedbackPage /></RequireMember>} />
       <Route path="/changelog" element={<RequireMember><ChangelogPage /></RequireMember>} />

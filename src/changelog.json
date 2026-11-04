@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.4.0",
+    "title": "Deine Sammlung",
+    "date": "2026-11-04",
+    "changes": [
+      "Picks von Freunden auf deine Kassette überspielen.",
+      "Unter „Sammlung“ findest du alle überspielten Picks. Auf dem Handy wischst du zwischen Feed und Sammlung.",
+      "Bei deinem eigenen Pick siehst du, wie oft er überspielt wurde."
+    ]
+  },
+  {
     "version": "0.3.1",
     "title": "Übersichtlicher Changelog",
     "date": "2026-11-02",
@@ -13,14 +23,14 @@
     "date": "2026-11-02",
     "changes": [
       "Diese Seite: alle Änderungen auf einen Blick, unten im Feed neben der Versionsnummer.",
-      "Ein roter Punkt zeigt, wenn es seit deinem letzten Blick etwas Neues gibt."
+      "Ein roter Punkt zeigt, wenn es seit deinem letzten mal etwas Neues gibt."
     ]
   },
   {
     "version": "0.2.1",
-    "title": "Erklärungen und Feedback",
+    "title": "Tutorial und Feedback",
     "changes": [
-      "Erklärungen erscheinen genau dann, wenn du ein Feature zum ersten Mal öffnest.",
+      "Tutorials erscheinen genau dann, wenn du ein Feature zum ersten Mal öffnest.",
       "Neue Erklärung zu Registrierung und Einladungscode.",
       "Menü oben rechts mit Anleitung, Feedback und Abmelden.",
       "Bugs melden, Feedback geben und Features wünschen."

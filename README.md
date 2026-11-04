@@ -61,20 +61,20 @@ Die erste Version hat vier Teile: Anmeldung, Pick posten, Feed und Pick-Detail. 
 
 Merkliste und Sonntags-Erinnerung kommen zuerst, weil sie im Alltag am meisten helfen. Mehr tägliche Funktionen sind bewusst nicht das Ziel, sonst verliert der eine Pick pro Woche sein Gewicht.
 
-| Erweiterung         | Wozu                                                                      | Wann            |
-| ------------------- | ------------------------------------------------------------------------- | --------------- |
-| Merkliste           | Picks speichern, die man nicht sofort hören kann                          | Phase 3         |
-| Sonntags-Erinnerung | Push-Hinweis, falls man noch nicht gepostet hat                           | Phase 3         |
-| Kommentare pro Feld | Direkt auf einen einzelnen Punkt eines Picks antworten                    | Phase 3         |
-| Reaktionen          | Kleinste mögliche Aktion, wenn man nicht kommentieren will                | Phase 3         |
-| Weitere Pick-Felder | Woher, Besonderheit und Tag aus der Tabelle oben                          | Phase 3         |
-| Albumclub           | Ein Album pro Monat, gewählt über Sterne und Rotation                     | Phase 4         |
-| „Entdeckt durch“    | Hoch bewertete Picks werden dem Freund gutgeschrieben, von dem sie kommen | Phase 4         |
-| Bewertungstypen     | Aus beiden Wertungen entstehen Typen wie „Guilty Pleasure“                | Phase 4         |
-| Geschmacks-Match    | Wo die Gruppe übereinstimmt und wo sie am weitesten auseinanderliegt      | Phase 4         |
-| „Vor einem Jahr“    | Alte Einträge samt Foto tauchen wieder auf                                | Nach einem Jahr |
-| Story-Karten        | Teilbare Karten für Instagram                                             | Bei Bedarf      |
-| Manuelle Top 5      | Wöchentliche Songliste von Hand eintragen                                 | Bei Bedarf      |
+| Erweiterung         | Wozu                                                                                                     | Wann            |
+| ------------------- | -------------------------------------------------------------------------------------------------------- | --------------- |
+| Sammlung            | Picks von Freunden in die eigene Sammlung überspielen; der Poster sieht, wie oft sein Pick kopiert wurde | Phase 3         |
+| Sonntags-Erinnerung | Push-Hinweis, falls man noch nicht gepostet hat                                                          | Phase 3         |
+| Kommentare pro Feld | Direkt auf einen einzelnen Punkt eines Picks antworten                                                   | Phase 3         |
+| Reaktionen          | Kleinste mögliche Aktion, wenn man nicht kommentieren will                                               | Phase 3         |
+| Weitere Pick-Felder | Woher, Besonderheit und Tag aus der Tabelle oben                                                         | Phase 3         |
+| Albumclub           | Ein Album pro Monat, gewählt über Sterne und Rotation                                                    | Phase 4         |
+| „Entdeckt durch“    | Hoch bewertete Picks werden dem Freund gutgeschrieben, von dem sie kommen                                | Phase 4         |
+| Bewertungstypen     | Aus beiden Wertungen entstehen Typen wie „Guilty Pleasure“                                               | Phase 4         |
+| Geschmacks-Match    | Wo die Gruppe übereinstimmt und wo sie am weitesten auseinanderliegt                                     | Phase 4         |
+| „Vor einem Jahr“    | Alte Einträge samt Foto tauchen wieder auf                                                               | Nach einem Jahr |
+| Story-Karten        | Teilbare Karten für Instagram                                                                            | Bei Bedarf      |
+| Manuelle Top 5      | Wöchentliche Songliste von Hand eintragen                                                                | Bei Bedarf      |
 
 ### Albumclub
 

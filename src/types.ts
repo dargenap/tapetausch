@@ -25,6 +25,7 @@ export type Pick = {
   photo_path: string | null;
   created_at: string;
   author: { username: string } | null;
+  saves: { user_id: string }[];
 };
 
 export type Rating = {

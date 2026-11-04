@@ -210,6 +210,7 @@ button:disabled {
   top: 0;
   z-index: 4;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
@@ -223,6 +224,40 @@ button:disabled {
 .topbar h1 {
   margin: 0;
   font-size: 1.3rem;
+}
+
+/* Umschalter Feed / Sammlung, zweite Zeile der Leiste */
+.tabs {
+  display: grid;
+  flex-basis: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 3px;
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.tabs a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.tabs a.active {
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+.page-title {
+  margin: 16px 0 0;
+  font-size: 1.1rem;
 }
 
 .topbar-actions {

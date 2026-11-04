@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { AppHeader } from "../components/AppHeader";
 import { HintSheet } from "../components/HintSheet";
-import { MenuSheet } from "../components/MenuSheet";
 import { PickCard } from "../components/PickCard";
 import { useAuth } from "../hooks/useAuth";
 import { useHint } from "../hooks/useHint";
 import { hasUnseenRelease } from "../lib/changelog";
-import { ALL_STEPS } from "../lib/hints";
 import { getPhotoUrls } from "../lib/photos";
 import { fetchFeed, hasPickedThisWeek } from "../lib/picks";
 import type { Pick } from "../types";
@@ -17,8 +16,6 @@ export default function FeedPage() {
   const [photoUrls, setPhotoUrls] = useState<Record<string, string>>({});
   const [pickedThisWeek, setPickedThisWeek] = useState(false);
   const [error, setError] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [guideOpen, setGuideOpen] = useState(false);
   // Beim ersten Öffnen, also auch direkt nach der Registrierung, kommt die Begrüßung.
   const welcome = useHint("welcome", profile?.id);
   const [unseenRelease] = useState(hasUnseenRelease);
@@ -53,16 +50,7 @@ export default function FeedPage() {
 
   return (
     <main className={showPostButton ? "has-fab" : undefined}>
-      <header className="topbar">
-        <h1>Tapetausch</h1>
-        <button
-          type="button"
-          className="small"
-          onClick={() => setMenuOpen(true)}
-        >
-          Menü
-        </button>
-      </header>
+      <AppHeader />
 
       <p className="greeting muted">
         Hallo {profile?.username}
@@ -90,19 +78,6 @@ export default function FeedPage() {
         </Link>
       )}
 
-      {menuOpen && (
-        <MenuSheet
-          username={profile?.username}
-          onGuide={() => {
-            setMenuOpen(false);
-            setGuideOpen(true);
-          }}
-          onClose={() => setMenuOpen(false)}
-        />
-      )}
-      {guideOpen && (
-        <HintSheet steps={ALL_STEPS} onClose={() => setGuideOpen(false)} />
-      )}
       {welcome.open && (
         <HintSheet steps={welcome.steps} onClose={welcome.close} />
       )}

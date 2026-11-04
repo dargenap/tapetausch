@@ -3,7 +3,8 @@ import { deletePhoto } from "./photos";
 import { supabase } from "./supabase";
 import type { Pick, Track } from "../types";
 
-const PICK_FIELDS = "*, author:profiles!picks_user_id_fkey(username)";
+export const PICK_FIELDS =
+  "*, author:profiles!picks_user_id_fkey(username), saves(user_id)";
 
 export async function fetchFeed(): Promise<Pick[]> {
   const { data, error } = await supabase
